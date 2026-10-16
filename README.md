@@ -19,7 +19,7 @@
 
 ## 使用方式
 
-1. 把 `swagger.json` 放到 `input/`。
+1. 把從環境取得的swagger.json檔,貼到 `input/`的`swagger.json`裡。
 2. 執行：
     ```bash
     python src/main.py
