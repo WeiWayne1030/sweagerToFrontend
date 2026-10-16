@@ -472,9 +472,11 @@ def copy_static_files():
 
 
 def set_output_dir(title):
-    """Point all output paths at output/<swagger title>."""
+    """Point all output paths at output/<swagger title, lowercase, without Chailease/Core>."""
     global OUTPUT_DIR, API_DIR, MODELS_DIR
-    folder = re.sub(r'[<>:"/\|?*]', "_", title or "").strip(" .") or "api"
+    folder = re.sub(r'[<>:"/\|?*]', "_", title or "").strip(" .")
+    parts = [p for p in folder.lower().split(".") if p not in ("chailease", "core")]
+    folder = ".".join(parts) or "api"
     OUTPUT_DIR = os.path.join(OUTPUT_ROOT, folder)
     API_DIR = os.path.join(OUTPUT_DIR, "api")
     MODELS_DIR = os.path.join(OUTPUT_DIR, "model")

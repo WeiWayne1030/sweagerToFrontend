@@ -27,7 +27,7 @@
 3. 產出會在 `output/<swagger 的 title>/`（每次執行會清掉該資料夾再重新生成）：
 
     ```
-    output/Chailease.Core.Commencement.API/
+    output/commencement.api/
       api/<tag>.service.ts   每個 swagger tag 一個 service，另有 api/api.ts
       model/<name>.ts        每個 schema 一個檔案，另有 model/models.ts
       api.module.ts, index.ts
@@ -38,5 +38,6 @@
 
 - 不需要手動修改 `swagger.json`（陣列的 request / response 會直接輸出成 `Array<T>`）。
 - 固定不變的檔案（`configuration.ts`、`encoder.ts`、`variables.ts`）放在 `src/templates/`，要調整請改這裡。
+- 如果怕可能有些環境拿到的swagger.json會有model或是api遺失,可以直接拿你做的api和他gen出來的model擷取使用。
 
 調整歷程請見 [HISTORY.md](HISTORY.md)。
